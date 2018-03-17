@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/astronaut.png-c8b2d3d03709355e85bac1d1003726b0.stex"
+path="res://.import/astronaut.png-73e4fe3dcc76edf5909c000a73040a14.stex"
 
 [deps]
 
-source_file="res://images/astronaut.png"
-source_md5="f228ecfed20bbc9eb97f957765f32bc5"
+source_file="res://scenes/astronaut.png"
+source_md5="9756bf5dc28e53cc341723ee0b7855b7"
 
-dest_files=[ "res://.import/astronaut.png-c8b2d3d03709355e85bac1d1003726b0.stex" ]
+dest_files=[ "res://.import/astronaut.png-73e4fe3dcc76edf5909c000a73040a14.stex" ]
 dest_md5="5ebdc171d89a1bbed433c65ddcfc58c1"
 
 [params]
