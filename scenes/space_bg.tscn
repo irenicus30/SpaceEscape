@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://images/space_bg.jpg" type="Texture" id=1]
+
+[node name="space_bg" type="Sprite" index="0"]
+
+position = Vector2( 530.623, 304.169 )
+scale = Vector2( 0.298487, 0.305558 )
+texture = ExtResource( 1 )
+
+

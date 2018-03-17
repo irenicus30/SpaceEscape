@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="SpaceEscape"
+run/main_scene="res://scenes/space_bg.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/resizable=false
 
 [rendering]
 
