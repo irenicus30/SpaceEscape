@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://images/astronaut.png" type="Texture" id=1]
+[ext_resource path="res://scenes/astronaut.gd" type="Script" id=1]
+[ext_resource path="res://images/astronaut2.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -8,27 +9,27 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="astronaut" type="Area2D"]
+[node name="astronaut" type="KinematicBody2D"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Pickable" ]
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+speed = 500
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 show_behind_parent = true
-texture = ExtResource( 1 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Visibility" ]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.349289, 4.61502 )
-scale = Vector2( 8.16408, 9.37408 )
+position = Vector2( 3.58057, -15.9259 )
+scale = Vector2( 10.4938, 9.39452 )
 shape = SubResource( 1 )
 
 
