@@ -1,6 +1,6 @@
-extends KinematicBody2D
+extends RigidBody2D
 
-export (int) var speed = 500
+export (int) var speed = 100
 
 var velocity = Vector2()
 
@@ -14,11 +14,12 @@ func get_input():
         velocity.y += 1
     if Input.is_action_pressed('ui_up'):
         velocity.y -= 1
-    velocity = velocity.normalized() * speed
+    if velocity.length()>0:
+        velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
     get_input()
-    move_and_slide(velocity)
+    apply_impulse(Vector2(), velocity*delta)
     print(velocity)
 
 func _process(delta):
