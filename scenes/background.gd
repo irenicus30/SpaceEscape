@@ -9,7 +9,7 @@ export(int) var bottles_on_screen
 # var b = "textvar"
 
 func _ready():
-	populate_with_bottles(bottles_on_screen*4-1,offset.x,offset.x+region_rect.end.x,offset.y,offset.y+region_rect.end.y)
+	populate_with_bottles(bottles_on_screen*4,offset.x,offset.x+region_rect.end.x,offset.y,offset.y+region_rect.end.y)
 
 func _process(delta):
     var astronaut = get_node("/root/background/astronaut")
@@ -28,6 +28,7 @@ func _process(delta):
 
 	
 func populate_with_bottles(number_of_bottles, pos_x_start, pos_x_end, pos_y_start, pos_y_end):
+	remove_existing_bottles(pos_x_start, pos_x_end, pos_y_start, pos_y_end)
 	for i in range(0,number_of_bottles):
 		var bottle = bottle_scene.instance()
 		bottle.position.x = get_random_int_from_range(pos_x_start, pos_x_end)
@@ -37,3 +38,10 @@ func populate_with_bottles(number_of_bottles, pos_x_start, pos_x_end, pos_y_star
 func get_random_int_from_range(range_start, range_end):
 	var difference = int(range_end-range_start)
 	return int(range_start + randi() % difference)
+
+func remove_existing_bottles(pos_x_start, pos_x_end, pos_y_start, pos_y_end):
+	var pickables = get_node("/root/background/pickables")
+	for child in pickables.get_children():
+		if pos_x_start<=child.position.x and child.position.x<=pos_x_end:
+			if pos_y_start<=child.position.y and child.position.y<=pos_y_end:
+				child.queue_free()

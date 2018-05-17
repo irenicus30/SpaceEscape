@@ -1,14 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://images/scifi_platformTiles_32x32.png" type="Texture" id=1]
 
-[sub_resource type="SegmentShape2D" id=1]
-
-custom_solver_bias = 0.0
-a = Vector2( 0, 0 )
-b = Vector2( 0, 10 )
-
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="Wall1" type="Sprite" parent="." index="0"]
 
@@ -20,7 +14,6 @@ _sections_unfolded = [ "Material", "Pause", "Region", "Transform", "Visibility",
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall1" index="0"]
 
-position = Vector2( -14.2695, -13.3183 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -28,12 +21,12 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1/StaticBody2D" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall1/StaticBody2D" index="0"]
 
-position = Vector2( 13.8947, -21.3042 )
-scale = Vector2( 21.2051, 6.7963 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = PoolVector2Array( 31.1917, 30.5897, 30.6513, -30.4707, -30.9494, -31.0111, -30.4091, 28.9686 )
 
 [node name="Wall2" type="Sprite" parent="." index="1"]
 
@@ -45,7 +38,6 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Wall2" index="0"]
 
-position = Vector2( -13.5561, -12.1291 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -53,12 +45,12 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D2" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2/StaticBody2D2" index="0"]
 
-position = Vector2( 13.8947, -21.3042 )
-scale = Vector2( 21.2051, 6.7963 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = PoolVector2Array( 29.2213, 30.525, 30.302, -30.5354, -30.7584, -32.1565, -31.8391, 31.0653 )
 
 [node name="Wall3" type="Sprite" parent="." index="2"]
 
@@ -70,7 +62,6 @@ _sections_unfolded = [ "Region" ]
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Wall3" index="0"]
 
-position = Vector2( -14.0317, -10.94 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -78,11 +69,11 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D3" index="0"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall3/StaticBody2D3" index="0"]
 
-position = Vector2( 13.8947, -21.3042 )
-scale = Vector2( 21.2051, 6.7963 )
-shape = SubResource( 1 )
+build_mode = 0
+polygon = PoolVector2Array( 30.4135, 30.3295, 32.0346, -31.8116, -33.3487, -31.2712, -32.8083, 28.7084 )
 
 

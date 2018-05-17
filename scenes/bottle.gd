@@ -15,5 +15,6 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	emit_signal("bottle_cought", body)
+	if body.name == "astronaut":
+		emit_signal("bottle_cought", body)
 	queue_free()

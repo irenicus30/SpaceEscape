@@ -7,7 +7,7 @@ var oxygen_value
 var oxygen_bar
 
 func _ready():
-	current_oxygen = max_oxygen/2
+	current_oxygen = max_oxygen
 	oxygen_value = get_node("HBoxContainer/VBoxContainer/oxygen_description/oxygen_value")
 	oxygen_value.text = String(current_oxygen) + "%"
 	oxygen_bar = get_node("HBoxContainer/VBoxContainer/oxygen_bar")

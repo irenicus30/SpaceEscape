@@ -8,7 +8,7 @@ custom_solver_bias = 0.0
 radius = 7.53608
 height = 20.0
 
-[node name="asteroid1" type="StaticBody2D" index="0"]
+[node name="asteroid1" type="StaticBody2D"]
 
 input_pickable = true
 collision_layer = 1
