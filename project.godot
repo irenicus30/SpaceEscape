@@ -10,8 +10,8 @@ config_version=3
 
 [application]
 
-config/name="SpaceEscape"
-run/main_scene="res://scenes/space_bg.tscn"
+config/name="ZeroRun"
+run/main_scene="res://scenes/background.tscn"
 config/icon="res://icon.png"
 
 [display]

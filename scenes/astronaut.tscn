@@ -17,7 +17,7 @@ collision_mask = 1
 mode = 0
 mass = 1.0
 friction = 0.0
-bounce = 1.0
+bounce = 0.5
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 0
@@ -26,12 +26,14 @@ contact_monitor = false
 sleeping = false
 can_sleep = false
 linear_velocity = Vector2( 0, 0 )
-linear_damp = 0.0
+linear_damp = 0.2
 angular_velocity = 0.0
-angular_damp = -1.0
+angular_damp = 1.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Applied Forces", "Linear", "Transform", "Z Index" ]
+_sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform", "Z Index" ]
 speed = 100
+burn_speed_moving = 0.1
+burn_speed_idle = 0.3
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

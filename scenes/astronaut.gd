@@ -1,8 +1,17 @@
 extends RigidBody2D
 
-export (int) var speed = 100
+signal oxygen_burn
 
+export (int) var speed = 100
+export (float) var burn_speed_moving = 0.1
+export (float) var burn_speed_idle = 0.3
+
+var cumulative_delta = 0
 var velocity = Vector2()
+
+func _ready():
+	var GUI = get_node("/root/background/CanvasLayer/GUI")
+	connect("oxygen_burn", GUI, "on_oxygen_burn")
 
 func get_input():
     velocity = Vector2()
@@ -18,17 +27,16 @@ func get_input():
         velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
-    get_input()
-    apply_impulse(Vector2(), velocity*delta)
-    print(velocity)
+	get_input()
+	apply_impulse(Vector2(), velocity*delta)
+	cumulative_delta = cumulative_delta + delta
+	if velocity.length()>0 and cumulative_delta>burn_speed_moving:
+		cumulative_delta = 0
+		emit_signal("oxygen_burn")
+	elif velocity.length()==0 and cumulative_delta>burn_speed_idle:
+		cumulative_delta = 0
+		emit_signal("oxygen_burn")
+
 
 func _process(delta):
-    var background = get_parent()
-    if global_position.x > background.offset.x + background.region_rect.end.x/4:
-        background.offset.x += background.region_rect.end.x/2
-    elif global_position.x < background.offset.x - background.region_rect.end.x/4:
-        background.offset.x -= background.region_rect.end.x/2
-    elif global_position.y > background.offset.y + background.region_rect.end.y/4:
-        background.offset.y += background.region_rect.end.y/2
-    elif global_position.y < background.offset.y - background.region_rect.end.y/4:
-        background.offset.y -= background.region_rect.end.y/2
+	pass
