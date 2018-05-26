@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/astronaut.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/asteroid1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/mytiles.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/mytiles2.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/bgsprite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
@@ -23,7 +23,6 @@ bottles_on_screen = 5
 
 position = Vector2( 400, 1000 )
 speed = 300
-burn_speed_idle = 0.1
 
 [node name="Camera2D" type="Camera2D" parent="astronaut" index="2"]
 

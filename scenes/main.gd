@@ -2,7 +2,7 @@ extends Sprite
 
 onready var bottle_scene = preload("res://scenes/bottle.tscn")
 onready var bgsprite_scene = preload("res://scenes/bgsprite.tscn")
-var tile_names = ["Wall1", "Wall2", "Wall3"]
+var tile_names = ["Wall1", "Wall2", "Wall3", "Wall4", "Wall5", "Wall6", "Wall7"]
 export(int) var obstacles_on_screen
 export(int) var bottles_on_screen
 
