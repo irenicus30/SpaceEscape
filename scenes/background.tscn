@@ -8,7 +8,7 @@
 [ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
 
-[node name="background" type="Sprite"]
+[node name="background" type="Sprite" index="0"]
 
 texture = ExtResource( 1 )
 centered = false
@@ -17,12 +17,14 @@ region_rect = Rect2( 0, 0, 4096, 2048 )
 region_filter_clip = true
 script = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
-bottles_on_screen = 10
+obstacles_on_screen = 500
+bottles_on_screen = 5
 
 [node name="astronaut" parent="." index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 400, 700 )
-burn_speed_moving = 0.2
+position = Vector2( 400, 1000 )
+speed = 300
+burn_speed_moving = 0.1
 burn_speed_idle = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="astronaut" index="2"]
@@ -53,7 +55,7 @@ _sections_unfolded = [ "Drag Margin", "Offset", "Pause", "Transform" ]
 
 [node name="asteroid1" parent="." index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 700, 500 )
+position = Vector2( 700, 700 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="TileMap" type="TileMap" parent="." index="2"]
@@ -74,14 +76,14 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 720906, -1610612734, 0, 786442, -1610612734, 0, 851978, -1610612734, 0, 917514, -1610612734, 0, 983050, -1610612734, 0, 983051, -1610612734, 0, 1048581, -1610612734, 0, 1048582, -1610612734, 0, 1048583, -1610612734, 0, 1048584, -1610612734, 0, 1048585, -1610612734, 0, 1048586, -1610612734, 0, 1048587, -1610612734, 0 )
+tile_data = PoolIntArray( 524293, 2, 0, 589828, 2, 0, 589829, 2, 0, 655363, 2, 0, 655364, 2, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Occluder", "Transform" ]
 
 [node name="pickables" type="Node" parent="." index="3"]
 
 [node name="bottle" parent="pickables" index="0" instance=ExtResource( 6 )]
 
-position = Vector2( 300, 400 )
+position = Vector2( 607.467, 1185.37 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]

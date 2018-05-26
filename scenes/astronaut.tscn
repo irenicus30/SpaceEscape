@@ -26,14 +26,14 @@ contact_monitor = false
 sleeping = false
 can_sleep = false
 linear_velocity = Vector2( 0, 0 )
-linear_damp = 0.2
+linear_damp = 0.0
 angular_velocity = 0.0
 angular_damp = 10.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform", "Z Index" ]
-speed = 100
-burn_speed_moving = 0.1
-burn_speed_idle = 0.3
+speed = 200
+burn_speed_moving = 0.05
+burn_speed_idle = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
