@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://images/space_bg2.png" type="Texture" id=1]
+
+[node name="bgsprite" type="Sprite"]
+
+z_index = -1
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 2048 )
+_sections_unfolded = [ "Offset", "Region", "Visibility", "Z Index" ]
+
+

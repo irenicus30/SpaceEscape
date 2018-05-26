@@ -10,7 +10,7 @@ var cumulative_delta = 0
 var velocity = Vector2()
 
 func _ready():
-	var GUI = get_node("/root/background/CanvasLayer/GUI")
+	var GUI = get_node("/root/main/CanvasLayer/GUI")
 	connect("oxygen_burn", GUI, "on_oxygen_burn")
 
 func get_input():

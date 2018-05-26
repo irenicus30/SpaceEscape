@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/astronaut.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/asteroid1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/mytiles.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/bgsprite.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+
+[node name="main" type="Sprite"]
+
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 2048 )
+region_filter_clip = true
+script = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
+obstacles_on_screen = 500
+bottles_on_screen = 5
+
+[node name="astronaut" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 400, 1000 )
+speed = 300
+burn_speed_idle = 0.1
+
+[node name="Camera2D" type="Camera2D" parent="astronaut" index="2"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Offset", "Pause", "Transform" ]
+
+[node name="asteroid1" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 700, 700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 64
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 0.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196610, 0, 0, 262145, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 393219, 0, 0, 458755, 0, 0, 458756, 0, 0, 524292, 0, 0, 524293, 2, 0, 589825, 0, 0, 589828, 2, 0, 589829, 2, 0, 655362, 0, 0, 655363, 2, 0, 655364, 2, 0, 720897, 0, 0, 720898, 0, 0, 786432, 0, 0, 786433, 0, 0, 851968, 0, 0, 851970, 0, 0, 917504, 0, 0, 917506, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 1048577, 0, 0, 1048579, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1245186, 0, 0, 1310721, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1507329, 0, 0, 1507331, 0, 0, 1507332, 1, 0, 1507333, 1, 0, 1572866, 1, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1638403, 1, 0, 1638404, 0, 0, 1638405, 0, 0, 1638406, 0, 0, 1703939, 1, 0, 1703940, 0, 0, 1703942, 0, 0, 1703943, 0, 0, 1769479, 0, 0, 1835017, 0, 0 )
+_sections_unfolded = [ "Cell", "Collision", "Occluder", "Transform" ]
+
+[node name="pickables" type="Node" parent="." index="3"]
+
+[node name="bottle" parent="pickables" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 607.467, 1185.37 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="background" type="Node" parent="." index="4"]
+
+[node name="bgsprite0" parent="background" index="0" instance=ExtResource( 6 )]
+
+offset = Vector2( -2048, 0 )
+
+[node name="bgsprite1" parent="background" index="1" instance=ExtResource( 6 )]
+
+[node name="bgsprite2" parent="background" index="2" instance=ExtResource( 6 )]
+
+offset = Vector2( 2048, 0 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
+
+

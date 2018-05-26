@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="astronaut" type="RigidBody2D"]
+[node name="astronaut" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -32,8 +32,8 @@ angular_damp = 10.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Linear", "Transform", "Z Index" ]
 speed = 200
-burn_speed_moving = 0.05
-burn_speed_idle = 0.2
+burn_speed_moving = 0.02
+burn_speed_idle = 0.1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

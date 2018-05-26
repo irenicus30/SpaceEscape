@@ -4,7 +4,7 @@ signal bottle_cought
 
 
 func _ready():
-	var GUI = get_node("/root/background/CanvasLayer/GUI")
+	var GUI = get_node("/root/main/CanvasLayer/GUI")
 	connect("bottle_cought", GUI, "on_bottle_cought")
 	
 
