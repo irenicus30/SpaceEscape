@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://images/temporary/astronaut.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://images/logo2.png" type="Texture" id=3]
+[ext_resource path="res://images/Graj.png" type="Texture" id=4]
+[ext_resource path="res://images/info.png" type="Texture" id=5]
+[ext_resource path="res://images/koniec.png" type="Texture" id=6]
+[ext_resource path="res://images/arrow.png" type="Texture" id=7]
+[ext_resource path="res://themes/Interstellar - Main Theme - Hans Zimmer.wav" type="AudioStream" id=8]
+
+[sub_resource type="Theme" id=1]
+
+
+[node name="MainMenu" type="Sprite"]
+
+position = Vector2( 515.954, 383.302 )
+scale = Vector2( 1.67459, 1.2289 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Logo" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -299.0
+margin_top = -303.0
+margin_right = 293.0
+margin_bottom = -76.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Theme" ]
+
+[node name="Graj" type="TextureRect" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -245.0
+margin_top = 16.0
+margin_right = -129.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="Info" type="TextureRect" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -239.0
+margin_top = 92.0
+margin_right = -143.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="Koniec" type="TextureRect" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -243.0
+margin_top = 168.0
+margin_right = -78.0
+margin_bottom = 248.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="Arrow" type="TextureRect" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -288.0
+margin_top = 27.0
+margin_right = -255.0
+margin_bottom = 71.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = SubResource( 1 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 0
+_sections_unfolded = [ "Grow Direction", "Rect", "Theme" ]
+
+[node name="Audio" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Info_text" type="Label" parent="." index="6"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 116.0
+margin_top = -85.0
+margin_right = 278.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Awaria statku wymusila \"piesza\" ucieczke. Zewszad jednak atakuja asteroidy, a tlenu jest coraz mniej. Unikaj zderzenia z czymkolwiek co spotkasz na swojej drodze, zbieraj butle z tlenem. Wytrzymaj jak najdluzej. 
+
+Bo z czasem moze sie okazac, ze z kosmosu nie ma ucieczki...
+
+Autorzy: [JB, LP, MS]"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+

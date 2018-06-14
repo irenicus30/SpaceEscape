@@ -8,6 +8,7 @@ export (float) var burn_speed_idle = 0.3
 
 var cumulative_delta = 0
 var velocity = Vector2()
+var MAX_SPEED = 105
 
 func _ready():
 	var GUI = get_node("/root/main/CanvasLayer/GUI")
@@ -16,7 +17,8 @@ func _ready():
 func get_input():
     velocity = Vector2()
     if Input.is_action_pressed('ui_right'):
-        velocity.x += 1
+        if velocity.x <= MAX_SPEED:
+            velocity.x += 1
     if Input.is_action_pressed('ui_left'):
         velocity.x -= 1
     if Input.is_action_pressed('ui_down'):

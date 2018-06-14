@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/astronaut.tscn" type="PackedScene" id=2]
@@ -7,17 +7,21 @@
 [ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/bgsprite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://images/game_over.png" type="Texture" id=8]
+[ext_resource path="res://themes/Interstellar - Main Theme - Hans Zimmer.wav" type="AudioStream" id=9]
 
 [node name="main" type="Sprite"]
 
+position = Vector2( 3, 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 4096, 2048 )
 region_filter_clip = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
-obstacles_on_screen = 500
-bottles_on_screen = 5
+obstacles_on_screen = 450
+obstacles_in_the_middle = 50
+bottles_on_screen = 3
 
 [node name="astronaut" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -104,5 +108,33 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
+
+[node name="game_over" type="TextureRect" parent="CanvasLayer/GUI" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 1024.0
+margin_bottom = 200.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 8 )
+stretch_mode = 0
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Audio" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
