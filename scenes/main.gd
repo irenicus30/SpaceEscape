@@ -95,13 +95,6 @@ func get_random_int_from_range(range_start, range_end):
 	var difference = int(range_end-range_start)
 	return int(range_start + randi() % difference)
 
-##func remove_existing_bottles(pos_x_start, pos_x_end, pos_y_start, pos_y_end):
-##	var pickables = get_node("/root/main/pickables")
-##	for child in pickables.get_children():
-##		if pos_x_start<=child.position.x and child.position.x<=pos_x_end:
-##			if pos_y_start<=child.position.y and child.position.y<=pos_y_end:
-##				child.queue_free()
-
 func add_texture(offset_x):
 	var bgsprite = bgsprite_scene.instance()
 	bgsprite.offset.x = offset_x
@@ -110,5 +103,4 @@ func add_texture(offset_x):
 func on_game_over():
 	is_game_over = true
 	get_node("CanvasLayer/GUI/HBoxContainer/VBoxContainer").visible = false
-	get_node("CanvasLayer/GUI/HBoxContainer/MarginContainer").visible = false
 	get_node("CanvasLayer/GUI/game_over").visible = true

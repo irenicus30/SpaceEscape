@@ -7,10 +7,7 @@ path="res://.import/oxygen_bar_bg.png-bda965012df1018ddb8f0bcd1b7ebfbb.stex"
 [deps]
 
 source_file="res://images/oxygen_bar/oxygen_bar_bg.png"
-source_md5="df50f22ac78c3f6bdc76d80b2ca5bfe8"
-
 dest_files=[ "res://.import/oxygen_bar_bg.png-bda965012df1018ddb8f0bcd1b7ebfbb.stex" ]
-dest_md5="2042e6830cd8af8291cae84806016916"
 
 [params]
 

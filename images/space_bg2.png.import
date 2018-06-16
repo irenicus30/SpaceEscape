@@ -7,10 +7,7 @@ path="res://.import/space_bg2.png-bfeb7c60a2213f2d96f1303e7d211edf.stex"
 [deps]
 
 source_file="res://images/space_bg2.png"
-source_md5="c28bd4aa94a397688d83b9733be57843"
-
 dest_files=[ "res://.import/space_bg2.png-bfeb7c60a2213f2d96f1303e7d211edf.stex" ]
-dest_md5="5c630b73cf9ecaf65ac8143466198936"
 
 [params]
 

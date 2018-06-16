@@ -7,10 +7,7 @@ path="res://.import/logo2.png-44d9aa6f420c79ee06b586b439f81542.stex"
 [deps]
 
 source_file="res://images/logo2.png"
-source_md5="6882e0c3407efff10162dd973f39b453"
-
 dest_files=[ "res://.import/logo2.png-44d9aa6f420c79ee06b586b439f81542.stex" ]
-dest_md5="21538278f9d8edc51b313abca1078ad0"
 
 [params]
 

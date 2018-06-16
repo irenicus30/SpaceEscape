@@ -10,7 +10,7 @@
 [ext_resource path="res://images/game_over.png" type="Texture" id=8]
 [ext_resource path="res://themes/Interstellar - Main Theme - Hans Zimmer.wav" type="AudioStream" id=9]
 
-[node name="main" type="Sprite"]
+[node name="main" type="Sprite" index="0"]
 
 position = Vector2( 3, 1 )
 centered = false
@@ -133,6 +133,7 @@ _sections_unfolded = [ "Rect", "Visibility" ]
 
 stream = ExtResource( 9 )
 volume_db = 0.0
+pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"

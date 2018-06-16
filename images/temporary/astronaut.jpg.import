@@ -7,10 +7,7 @@ path="res://.import/astronaut.jpg-b93b3903a870cacab714ad84549ef3a6.stex"
 [deps]
 
 source_file="res://images/temporary/astronaut.jpg"
-source_md5="85217267f6ac6484a4bc81fb69c56f49"
-
 dest_files=[ "res://.import/astronaut.jpg-b93b3903a870cacab714ad84549ef3a6.stex" ]
-dest_md5="1e5496dd0aa561388000e2d3f0708ff0"
 
 [params]
 

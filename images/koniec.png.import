@@ -7,10 +7,7 @@ path="res://.import/koniec.png-af37ca54e088cd2a8f8712a202eed63d.stex"
 [deps]
 
 source_file="res://images/koniec.png"
-source_md5="ccfdeb9a0b1c87545c46025010fc2628"
-
 dest_files=[ "res://.import/koniec.png-af37ca54e088cd2a8f8712a202eed63d.stex" ]
-dest_md5="4d2edbab5571a2420a4cff2fe33343ea"
 
 [params]
 

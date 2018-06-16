@@ -14,7 +14,7 @@ func _ready():
 #	pass
 
 
-func _on__body_entered(body):
+func _on_Area2D_body_entered(body):
 	if body.name == "astronaut":
 		emit_signal("asteroid_crash", body)
 		print("SYGNAAAAL")

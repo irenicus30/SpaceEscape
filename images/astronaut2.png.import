@@ -7,10 +7,7 @@ path="res://.import/astronaut2.png-802956f3f09041e9d72774cf9810c1a0.stex"
 [deps]
 
 source_file="res://images/astronaut2.png"
-source_md5="d58470e98dcf2da2976d527cda6684a9"
-
 dest_files=[ "res://.import/astronaut2.png-802956f3f09041e9d72774cf9810c1a0.stex" ]
-dest_md5="e6ff9c7a1ae49de4b3419c7fa16880d7"
 
 [params]
 

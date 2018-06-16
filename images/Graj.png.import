@@ -7,10 +7,7 @@ path="res://.import/Graj.png-f0a9f54062d7a0c37f8c257ecbe4ccd7.stex"
 [deps]
 
 source_file="res://images/Graj.png"
-source_md5="6080ff6f261d4d0c87d25a0e0ffc1ed1"
-
 dest_files=[ "res://.import/Graj.png-f0a9f54062d7a0c37f8c257ecbe4ccd7.stex" ]
-dest_md5="c84a7c3daae1d3efcfd8aac082248499"
 
 [params]
 

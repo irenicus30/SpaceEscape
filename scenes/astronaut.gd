@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 signal oxygen_burn
+signal asteroid_crash
 
 export (int) var speed = 100
 export (float) var burn_speed_moving = 0.1
@@ -13,6 +14,7 @@ var MAX_SPEED = 105
 func _ready():
 	var GUI = get_node("/root/main/CanvasLayer/GUI")
 	connect("oxygen_burn", GUI, "on_oxygen_burn")
+	connect("asteroid_crash", GUI, "on_asteroid_crash")
 
 func get_input():
     velocity = Vector2()
@@ -29,6 +31,11 @@ func get_input():
         velocity = velocity.normalized() * speed
 
 func _physics_process(delta):
+	var collisions = get_colliding_bodies()
+	if collisions:
+		if typeof(collisions) == TYPE_ARRAY:
+			emit_signal('asteroid_crash')
+#		if collisions.
 	get_input()
 	apply_impulse(Vector2(), velocity*delta)
 	cumulative_delta = cumulative_delta + delta
@@ -38,7 +45,7 @@ func _physics_process(delta):
 	elif velocity.length()==0 and cumulative_delta>burn_speed_idle:
 		cumulative_delta = 0
 		emit_signal("oxygen_burn")
-
+	
 
 func _process(delta):
 	pass

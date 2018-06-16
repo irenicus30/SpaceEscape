@@ -7,10 +7,7 @@ path="res://.import/a40010.png-da89f694a8358f73fc227fc4289060bb.stex"
 [deps]
 
 source_file="res://images/asteroids/small/a40010.png"
-source_md5="2ce13c1bf8bf8b44e311dd84fcc837ba"
-
 dest_files=[ "res://.import/a40010.png-da89f694a8358f73fc227fc4289060bb.stex" ]
-dest_md5="dcb753b8f4e3f57300fc6ac28642605e"
 
 [params]
 

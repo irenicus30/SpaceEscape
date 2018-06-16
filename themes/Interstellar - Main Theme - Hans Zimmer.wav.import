@@ -7,10 +7,7 @@ path="res://.import/Interstellar - Main Theme - Hans Zimmer.wav-d775b7b8b3b1fd59
 [deps]
 
 source_file="res://themes/Interstellar - Main Theme - Hans Zimmer.wav"
-source_md5="3333eb856737db62cab5163f96fa1e2e"
-
 dest_files=[ "res://.import/Interstellar - Main Theme - Hans Zimmer.wav-d775b7b8b3b1fd599a17d560d2ba3dcb.sample" ]
-dest_md5="9cc393c228128f7442dee4d02dc7bc04"
 
 [params]
 

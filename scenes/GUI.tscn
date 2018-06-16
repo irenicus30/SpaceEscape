@@ -1,17 +1,19 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/GUI.gd" type="Script" id=1]
-[ext_resource path="res://fonts/RockBiterOutlines.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://images/oxygen_bar/oxygen_bar_bg.png" type="Texture" id=3]
-[ext_resource path="res://images/oxygen_bar/oxygen_bar_fill.png" type="Texture" id=4]
+[ext_resource path="res://images/oxygen_bar/oxygen_bar_bg.png" type="Texture" id=2]
+[ext_resource path="res://images/oxygen_bar/oxygen_bar_fill.png" type="Texture" id=3]
+[ext_resource path="res://fonts/RockBiterOutlines.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://scenes/time_value.gd" type="Script" id=5]
+[ext_resource path="res://scenes/bottles_value.gd" type="Script" id=6]
+[ext_resource path="res://scenes/crashes_value.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -19,7 +21,7 @@ _sections_unfolded = [ "Font", "Resource", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -27,7 +29,7 @@ _sections_unfolded = [ "Font", "Resource", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -35,16 +37,16 @@ _sections_unfolded = [ "Font", "Resource", "Settings" ]
 size = 30
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="GUI" type="MarginContainer"]
+[node name="GUI" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_bottom = 90.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -55,7 +57,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Margin" ]
 max_oxygen = 100
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
+[node name="HBoxContainer" type="VBoxContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -63,15 +65,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 1024.0
-margin_bottom = 90.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "Mouse", "Rect", "Size Flags", "Theme" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" index="0"]
 
@@ -79,8 +81,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 265.0
-margin_right = 661.0
+margin_right = 1016.0
 margin_bottom = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -89,15 +90,46 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="oxygen_description" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" index="0"]
+[node name="oxygen_bar" type="TextureProgress" parent="HBoxContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 396.0
-margin_bottom = 33.0
+margin_right = 1016.0
+margin_bottom = 53.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 2 )
+texture_over = null
+texture_progress = ExtResource( 3 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Anchor", "Margin", "Radial Fill", "Rect", "Size Flags", "Textures" ]
+
+[node name="oxygen_description" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 57.0
+margin_right = 1016.0
+margin_bottom = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -112,20 +144,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 194.0
+margin_right = 552.0
 margin_bottom = 33.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 4
+size_flags_stretch_ratio = 1.2
 custom_fonts/font = SubResource( 1 )
 text = "oxygen left: "
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Size Flags", "custom_fonts", "custom_styles" ]
 
 [node name="oxygen_value" type="Label" parent="HBoxContainer/VBoxContainer/oxygen_description" index="1"]
 
@@ -133,93 +167,81 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 198.0
-margin_right = 264.0
+margin_left = 556.0
+margin_right = 1016.0
 margin_bottom = 33.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 text = "100%"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
+_sections_unfolded = [ "Size Flags", "custom_fonts" ]
 
-[node name="oxygen_bar" type="TextureProgress" parent="HBoxContainer/VBoxContainer" index="1"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 37.0
-margin_right = 396.0
-margin_bottom = 90.0
+margin_top = 94.0
+margin_right = 1016.0
+margin_bottom = 164.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 100.0
-exp_edit = false
-rounded = false
-texture_under = ExtResource( 3 )
-texture_over = null
-texture_progress = ExtResource( 4 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
-_sections_unfolded = [ "Anchor", "Radial Fill", "Rect", "Textures" ]
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer" index="1"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 665.0
-margin_right = 750.0
-margin_bottom = 90.0
+margin_right = 336.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
+size_flags_horizontal = 3
 size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
-[node name="time" type="VBoxContainer" parent="HBoxContainer/MarginContainer" index="0"]
+[node name="time" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
-margin_right = 85.0
-margin_bottom = 90.0
+margin_right = 336.0
+margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-alignment = 0
+alignment = 1
 
-[node name="time_description" type="Label" parent="HBoxContainer/MarginContainer/time" index="0"]
+[node name="time_description" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/time" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 77.0
+margin_right = 328.0
 margin_bottom = 33.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -234,14 +256,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="time_value" type="Label" parent="HBoxContainer/MarginContainer/time" index="1"]
+[node name="time_value" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer/time" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 37.0
-margin_right = 77.0
+margin_right = 328.0
 margin_bottom = 70.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -255,6 +277,162 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 5 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 340.0
+margin_right = 676.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "Visibility" ]
+
+[node name="bottles" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/MarginContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 336.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="bottles_description" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer2/bottles" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 328.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "bottles caught:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="bottles_value" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer2/bottles" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 37.0
+margin_right = 328.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 6 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer2" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 680.0
+margin_right = 1016.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
+
+[node name="crashes" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/MarginContainer3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 336.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="crashes_description" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer3/crashes" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 328.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "asteroids crashed:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="crashes_value" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer3/crashes" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 37.0
+margin_right = 328.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 7 )
 _sections_unfolded = [ "custom_fonts" ]
 
 

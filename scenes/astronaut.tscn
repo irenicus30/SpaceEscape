@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="astronaut" type="RigidBody2D"]
+[node name="astronaut" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -21,8 +21,8 @@ bounce = 0.5
 gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = 2
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 1
+contact_monitor = true
 sleeping = false
 can_sleep = false
 linear_velocity = Vector2( 0, 0 )

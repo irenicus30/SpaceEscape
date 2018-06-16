@@ -7,10 +7,7 @@ path="res://.import/scifi_platformTiles_32x32.png-fa02cd34330e9ab8d15ed2e17126c6
 [deps]
 
 source_file="res://images/scifi_platformTiles_32x32.png"
-source_md5="703c6fc8de9c730dae97bcfd0c37e286"
-
 dest_files=[ "res://.import/scifi_platformTiles_32x32.png-fa02cd34330e9ab8d15ed2e17126c6b8.stex" ]
-dest_md5="6f3025f3f31142f89549e471488b1b96"
 
 [params]
 

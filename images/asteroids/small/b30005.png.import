@@ -7,10 +7,7 @@ path="res://.import/b30005.png-306fb774debf638f00b4959ca0ae3762.stex"
 [deps]
 
 source_file="res://images/asteroids/small/b30005.png"
-source_md5="5140f81ba039b7b683001ff3ebd346f6"
-
 dest_files=[ "res://.import/b30005.png-306fb774debf638f00b4959ca0ae3762.stex" ]
-dest_md5="c5976ada61fc4b582546146049d8b30f"
 
 [params]
 
