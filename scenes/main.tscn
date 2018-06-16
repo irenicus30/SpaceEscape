@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/astronaut.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/asteroid1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/mytiles2.tres" type="TileSet" id=4]
-[ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/bgsprite.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/mytiles2.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/bottle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/bgsprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/pause_scene.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/pause_scene.gd" type="Script" id=8]
+[ext_resource path="res://scenes/asteroid1.tscn" type="PackedScene" id=9]
 
-[node name="main" type="Sprite"]
+[node name="main" type="Sprite" index="0"]
 
 centered = false
 region_enabled = true
@@ -18,11 +20,16 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Region", "Transform", "Visibility" ]
 obstacles_on_screen = 500
 bottles_on_screen = 5
+asteroids_on_screen = 2
 
 [node name="astronaut" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 400, 1000 )
-speed = 300
+position = Vector2( 409, 1000 )
+_sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Pickable", "Transform", "Z Index" ]
+move_speed = 100
+rotate_speed = 10
+burn_speed_moving = 0.1
+burn_speed_idle = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="astronaut" index="2"]
 
@@ -50,15 +57,10 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Drag Margin", "Offset", "Pause", "Transform" ]
 
-[node name="asteroid1" parent="." index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 700, 700 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="TileMap" type="TileMap" parent="." index="2"]
+[node name="TileMap" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 64
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -76,26 +78,26 @@ format = 1
 tile_data = PoolIntArray( 196610, 0, 0, 262145, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 393219, 0, 0, 458755, 0, 0, 458756, 0, 0, 524292, 0, 0, 524293, 2, 0, 589825, 0, 0, 589828, 2, 0, 589829, 2, 0, 655362, 0, 0, 655363, 2, 0, 655364, 2, 0, 720897, 0, 0, 720898, 0, 0, 786432, 0, 0, 786433, 0, 0, 851968, 0, 0, 851970, 0, 0, 917504, 0, 0, 917506, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 1048577, 0, 0, 1048579, 0, 0, 1114112, 0, 0, 1114113, 0, 0, 1179648, 0, 0, 1179649, 0, 0, 1179650, 0, 0, 1245186, 0, 0, 1310721, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1507329, 0, 0, 1507331, 0, 0, 1507332, 1, 0, 1507333, 1, 0, 1572866, 1, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1638403, 1, 0, 1638404, 0, 0, 1638405, 0, 0, 1638406, 0, 0, 1703939, 1, 0, 1703940, 0, 0, 1703942, 0, 0, 1703943, 0, 0, 1769479, 0, 0, 1835017, 0, 0 )
 _sections_unfolded = [ "Cell", "Collision", "Occluder", "Transform" ]
 
-[node name="pickables" type="Node" parent="." index="3"]
+[node name="pickables" type="Node" parent="." index="2"]
 
-[node name="bottle" parent="pickables" index="0" instance=ExtResource( 5 )]
+[node name="bottle" parent="pickables" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 607.467, 1185.37 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="background" type="Node" parent="." index="4"]
+[node name="background" type="Node" parent="." index="3"]
 
-[node name="bgsprite0" parent="background" index="0" instance=ExtResource( 6 )]
+[node name="bgsprite0" parent="background" index="0" instance=ExtResource( 5 )]
 
 offset = Vector2( -2048, 0 )
 
-[node name="bgsprite1" parent="background" index="1" instance=ExtResource( 6 )]
+[node name="bgsprite1" parent="background" index="1" instance=ExtResource( 5 )]
 
-[node name="bgsprite2" parent="background" index="2" instance=ExtResource( 6 )]
+[node name="bgsprite2" parent="background" index="2" instance=ExtResource( 5 )]
 
 offset = Vector2( 2048, 0 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="5"]
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -103,6 +105,34 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 7 )]
+[node name="GUI" parent="CanvasLayer" index="0" instance=ExtResource( 6 )]
+
+[node name="pause_scene" parent="." index="5" instance=ExtResource( 7 )]
+
+pause_mode = 2
+script = ExtResource( 8 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="asteroids" type="Node" parent="." index="6"]
+
+[node name="asteroid1" parent="asteroids" index="0" instance=ExtResource( 9 )]
+
+position = Vector2( 1500, 900 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroid2" parent="asteroids" index="1" instance=ExtResource( 9 )]
+
+position = Vector2( 700, 700 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroid3" parent="asteroids" index="2" instance=ExtResource( 9 )]
+
+position = Vector2( 2800, 1100 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="asteroid4" parent="asteroids" index="3" instance=ExtResource( 9 )]
+
+position = Vector2( 3000, 1000 )
+_sections_unfolded = [ "Transform" ]
 
 

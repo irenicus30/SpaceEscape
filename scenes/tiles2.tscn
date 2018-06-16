@@ -5,8 +5,8 @@
 [ext_resource path="res://images/asteroids/medium/a10008.png" type="Texture" id=3]
 [ext_resource path="res://images/asteroids/medium/c10001.png" type="Texture" id=4]
 [ext_resource path="res://images/asteroids/medium/c10013.png" type="Texture" id=5]
-[ext_resource path="res://images/asteroids/medium/d30009.png" type="Texture" id=6]
-[ext_resource path="res://images/asteroids/medium/d40014.png" type="Texture" id=7]
+[ext_resource path="res://images/asteroids/small/b10006.png" type="Texture" id=6]
+[ext_resource path="res://images/asteroids/small/b10000.png" type="Texture" id=7]
 
 [node name="Node2D" type="Node2D"]
 
@@ -127,7 +127,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall6/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 14.328, 32.9184, 26.5916, 14.8151, 17.3, -25.3362, -5.36273, -33.2418, -27.7184, -17.3038, -24.2146, 5.47142, -17.7908, 18.9029, -5.36273, 28.949 )
+polygon = PoolVector2Array( 6.15219, 12.4792, 16.6638, 0.799583, 6.73618, -14.9678, -16.039, -4.45621, -8.44727, 9.55927 )
 
 [node name="Wall7" type="Sprite" parent="." index="6"]
 
@@ -136,6 +136,7 @@ texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall7" index="0"]
 
+position = Vector2( 0.583984, 0 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -147,6 +148,6 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall7/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( 20.7518, 21.2388, 29.5115, 0.799576, 28.3436, -19.6397, -3.19131, -26.0634, -27.7184, -17.3038, -33.5582, 6.05539, -20.7107, 17.735, -3.19131, 21.8228 )
+polygon = PoolVector2Array( 9.6568, 13.647, 11.4088, -0.368515, -2.02277, -13.2161, -17.2062, -7.37627, -15.4543, 7.80719 )
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/GUI.gd" type="Script" id=1]
 [ext_resource path="res://fonts/RockBiterOutlines.ttf" type="DynamicFontData" id=2]
@@ -22,7 +22,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 
 size = 30
 use_mipmaps = false
@@ -30,7 +30,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 
 size = 30
 use_mipmaps = false
@@ -38,13 +38,20 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+[sub_resource type="DynamicFont" id=3]
+
+size = 100
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
+
 [node name="GUI" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
-anchor_bottom = 0.0
-margin_bottom = 90.0
+anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -53,6 +60,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Margin" ]
+bottle_oxygen = 10
 max_oxygen = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
@@ -63,7 +71,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 1024.0
-margin_bottom = 90.0
+margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -81,7 +89,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 265.0
 margin_right = 661.0
-margin_bottom = 90.0
+margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -187,7 +195,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 665.0
 margin_right = 750.0
-margin_bottom = 90.0
+margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -204,7 +212,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 8.0
 margin_right = 85.0
-margin_bottom = 90.0
+margin_bottom = 768.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -227,7 +235,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "time:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -249,12 +257,37 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 5 )
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="game_over_text" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 331.0
+margin_right = 1024.0
+margin_bottom = 436.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "GAME OVER"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
 

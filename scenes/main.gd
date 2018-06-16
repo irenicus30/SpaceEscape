@@ -1,10 +1,12 @@
 extends Sprite
 
 onready var bottle_scene = preload("res://scenes/bottle.tscn")
+onready var asteroid_scene = preload("res://scenes/asteroid1.tscn")
 onready var bgsprite_scene = preload("res://scenes/bgsprite.tscn")
 var tile_names = ["Wall1", "Wall2", "Wall3", "Wall4", "Wall5", "Wall6", "Wall7"]
 export(int) var obstacles_on_screen
 export(int) var bottles_on_screen
+export(int) var asteroids_on_screen
 
 var no_x_region = 0
 var max_no_x_region_so_far = 0
@@ -34,6 +36,7 @@ func _process(delta):
             var rect = [background_x_min+no_x_region*background_width+background_width,background_x_max+no_x_region*background_width+background_width,background_y_min,background_y_max]
             populate_with_obstacles(obstacles_on_screen,rect)
             populate_with_bottles(bottles_on_screen,rect)
+            populate_with_asteroids(asteroids_on_screen,rect)
             add_texture(no_x_region*background_width+background_width)
     elif astronaut.global_position.x < background_x_min+no_x_region*background_width:
         no_x_region -= 1
@@ -68,6 +71,18 @@ func populate_with_bottles(number_of_bottles, rect):
 		bottle.position.x = get_random_int_from_range(pos_x_start, pos_x_end)
 		bottle.position.y = get_random_int_from_range(pos_y_start*2/3+pos_y_end/3, pos_y_start/3+pos_y_end*2/3)
 		get_node("/root/main/pickables").add_child(bottle)
+
+func populate_with_asteroids(number_of_asteroids, rect):
+	var pos_x_start = rect[0]
+	var pos_x_end = rect[1]
+	var pos_y_start = rect[2]
+	var pos_y_end = rect[3]
+	##remove_existing_bottles(pos_x_start, pos_x_end, pos_y_start, pos_y_end)
+	for i in range(0,number_of_asteroids):
+		var asteroid = asteroid_scene.instance()
+		asteroid.position.x = get_random_int_from_range(pos_x_start, pos_x_end)
+		asteroid.position.y = get_random_int_from_range(pos_y_start*2/3+pos_y_end/3, pos_y_start/3+pos_y_end*2/3)
+		get_node("/root/main/asteroids").add_child(asteroid)
 
 func get_random_int_from_range(range_start, range_end):
 	var difference = int(range_end-range_start)
