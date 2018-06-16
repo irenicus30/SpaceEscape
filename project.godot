@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="ZeroRun"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]
